@@ -4,7 +4,7 @@
  *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us info@hellomage.com
+ * Please contact us jicksonkoottala@gmail.com
  *
  * @category   HelloMage
  * @package    HelloMage_DeleteInvoice
@@ -30,40 +30,18 @@ use Psr\Log\LoggerInterface;
  */
 class Delete
 {
-    /**
-     * @var ResourceConnection
-     */
-    protected $resource;
+    protected ResourceConnection $resource;
 
-    /**
-     * @var Data
-     */
-    protected $data;
+    protected Data $data;
 
-    /**
-     * @var InvoiceRepositoryInterface
-     */
-    protected $invoiceRepository;
+    protected InvoiceRepositoryInterface $invoiceRepository;
 
-    /**
-     * @var Order
-     */
-    protected $order;
+    protected Order $order;
 
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
+    private LoggerInterface $logger;
 
-    /**
-     * @var SendNotification
-     */
-    protected $sendNotification;
-
-    /**
-     * @var Session
-     */
-    protected $_authSession;
+    protected SendNotification $sendNotification;
+    protected Session $_authSession;
 
     /**
      * Delete constructor.

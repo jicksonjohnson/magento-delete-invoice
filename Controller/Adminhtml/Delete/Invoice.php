@@ -4,7 +4,7 @@
  *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us info@hellomage.com
+ * Please contact us jicksonkoottala@gmail.com
  *
  * @category   HelloMage
  * @package    HelloMage_DeleteInvoice
@@ -28,43 +28,25 @@ use Psr\Log\LoggerInterface;
  */
 class Invoice extends Action
 {
-    /**
-     * @var InvoiceRepositoryInterface
-     */
-    protected $invoiceRepository;
+    protected InvoiceRepositoryInterface $invoiceRepository;
 
-    /**
-     * @var Delete
-     */
-    protected $delete;
-
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
-    /**
-     * @var SystemConfig
-     */
-    protected $systemConfig;
+    protected Delete $delete;
+    protected SystemConfig $systemConfig;
 
     /**
      * Invoice constructor.
      * @param Action\Context $context
      * @param InvoiceRepositoryInterface $invoiceRepository
-     * @param LoggerInterface $logger
      * @param Delete $delete
      * @param SystemConfig $systemConfig
      */
     public function __construct(
         Action\Context $context,
         InvoiceRepositoryInterface $invoiceRepository,
-        LoggerInterface $logger,
         Delete $delete,
         SystemConfig $systemConfig
     ) {
         $this->invoiceRepository = $invoiceRepository;
-        $this->logger = $logger;
         $this->delete = $delete;
         $this->systemConfig = $systemConfig;
         parent::__construct($context);

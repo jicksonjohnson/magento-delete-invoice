@@ -4,7 +4,7 @@
  *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us info@hellomage.com
+ * Please contact us jicksonkoottala@gmail.com
  *
  * @category   HelloMage
  * @package    HelloMage_DeleteInvoice
@@ -33,32 +33,15 @@ use Magento\Store\Model\StoreManagerInterface;
  */
 class SendNotification extends AbstractHelper
 {
-    /**
-     * @var TransportBuilder
-     */
-    protected $transportBuilder;
+    protected TransportBuilder $transportBuilder;
 
-    /**
-     * @var StoreManagerInterface
-     */
-    protected $storeManager;
+    protected StoreManagerInterface $storeManager;
 
-    /**
-     * @var StateInterface
-     */
-    protected $inlineTranslation;
+    protected StateInterface $inlineTranslation;
 
-    /**
-     * Sender resolver
-     *
-     * @var SenderResolverInterface
-     */
-    protected $senderResolver;
+    protected SenderResolverInterface $senderResolver;
 
-    /**
-     * @var SystemConfig
-     */
-    protected $systemConfig;
+    protected SystemConfig $systemConfig;
 
     /**
      * SendNotification constructor.

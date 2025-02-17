@@ -4,7 +4,7 @@
  *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us info@hellomage.com
+ * Please contact us jicksonkoottala@gmail.com
  *
  * @category   HelloMage
  * @package    HelloMage_DeleteInvoice
@@ -25,20 +25,11 @@ use Magento\Backend\Model\Auth\Session;
  */
 class PluginAbstract
 {
-    /**
-     * @var AclRetriever
-     */
-    protected $aclRetriever;
+    protected AclRetriever $aclRetriever;
 
-    /**
-     * @var Session
-     */
-    protected $authSession;
+    protected Session $authSession;
 
-    /**
-     * @var SystemConfig
-     */
-    protected $systemConfig;
+    protected SystemConfig $systemConfig;
 
     /**
      * PluginAbstract constructor.

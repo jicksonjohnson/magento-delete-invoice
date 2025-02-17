@@ -4,7 +4,7 @@
  *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us info@hellomage.com
+ * Please contact us jicksonkoottala@gmail.com
  *
  * @category   HelloMage
  * @package    HelloMage_DeleteInvoice
@@ -32,35 +32,16 @@ use Psr\Log\LoggerInterface;
  */
 class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMassAction
 {
-    /**
-     * @var OrderManagementInterface
-     */
-    protected $orderManagement;
+    protected OrderManagementInterface $orderManagement;
 
-    /**
-     * @var \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory
-     */
-    protected $invoiceCollectionFactory;
+    protected \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory $invoiceCollectionFactory;
 
-    /**
-     * @var InvoiceRepositoryInterface
-     */
-    protected $invoiceRepository;
+    protected InvoiceRepositoryInterface $invoiceRepository;
 
-    /**
-     * @var Delete
-     */
-    protected $delete;
+    protected Delete $delete;
 
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
-    /**
-     * @var SystemConfig
-     */
-    protected $systemConfig;
+    private LoggerInterface $logger;
+    protected SystemConfig $systemConfig;
 
     /**
      * MassInvoice constructor.
@@ -143,30 +124,6 @@ class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMass
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('HelloMage_DeleteInvoice::massDelete');
-    }
-
-    /**
-     * Delete Invoice by invoice id
-     *
-     * @param $invoiceId
-     * @return bool
-     */
-    public function deleteInvoice($invoiceId): bool
-    {
-        $deleteInvoice = false;
-
-        if (isset($invoiceId)) {
-            try {
-                //loading invoice object by invoice id
-                $invoiceData = $this->invoiceRepository->get($invoiceId);
-                //delete invoice by invoice object
-                $deleteInvoice = $this->invoiceRepository->delete($invoiceData);
-            } catch (Exception $exception) {
-                $this->logger->critical($exception->getMessage());
-            }
-        }
-
-        return $deleteInvoice;
     }
 
     /**

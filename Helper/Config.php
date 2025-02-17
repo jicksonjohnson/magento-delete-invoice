@@ -4,7 +4,7 @@
  *
  * Do not edit or add to this file if you wish to upgrade to newer versions in the future.
  * If you wish to customise this module for your needs.
- * Please contact us info@hellomage.com
+ * Please contact us jicksonkoottala@gmail.com
  *
  * @category   HelloMage
  * @package    HelloMage_DeleteInvoice
@@ -29,35 +29,19 @@ class Config
     const XML_PATH_REDIRECT_PAGE  = 'hm-delete-invoice/general/redirect_page';
     const XML_PATH_EMAIL_IDENTITY = 'hm-delete-invoice/general/identity';
     const XML_PATH_EMAIL_COPY_TO  = 'hm-delete-invoice/general/copy_to';
-
-    /**
-     * @var StoreManagerInterface
-     */
-    protected $_storeManager;
-
-    /**
-     * @var ScopeConfigInterface
-     */
-    private $scopeConfig;
-
-    /**
-     * @var UrlInterface
-     */
-    private $urlBuilder;
+    protected StoreManagerInterface $_storeManager;
+    private ScopeConfigInterface $scopeConfig;
 
     /**
      * @param StoreManagerInterface $storeManager
      * @param ScopeConfigInterface $scopeConfig
-     * @param UrlInterface $urlBuilder
      */
     public function __construct(
         StoreManagerInterface $storeManager,
-        ScopeConfigInterface $scopeConfig,
-        UrlInterface $urlBuilder
+        ScopeConfigInterface $scopeConfig
     ) {
         $this->_storeManager = $storeManager;
         $this->scopeConfig = $scopeConfig;
-        $this->urlBuilder = $urlBuilder;
     }
 
     /**
