@@ -12,8 +12,10 @@
  * @license    https://www.hellomage.com/magento2-osl-3-0-license/
  */
 
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(
+    ComponentRegistrar::MODULE,
     'HelloMage_DeleteInvoice',
     __DIR__
 );

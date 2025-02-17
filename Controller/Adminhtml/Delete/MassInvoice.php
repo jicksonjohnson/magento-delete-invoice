@@ -95,18 +95,14 @@ class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMass
                 foreach ($selected as $invoiceId) {
                     $invoice = $this->invoiceRepository->get($invoiceId);
                     try {
-                        $order = $this->deleteInvoiceByModel($invoiceId);
+                        $this->deleteInvoiceByModel($invoiceId);
                         $this->messageManager->addSuccessMessage(__('Successfully deleted invoice #%1.', $invoice->getIncrementId()));
                     } catch (\Exception $e) {
                         $this->messageManager->addErrorMessage(__('Error delete invoice #%1.', $invoice->getIncrementId()));
                     }
                 }
             }
-            if ($params['namespace'] == 'sales_order_view_invoice_grid') {
-                $resultRedirect->setPath('sales/order/view', ['order_id' => $order->getId()]);
-            } else {
-                $resultRedirect->setPath('sales/invoice/');
-            }
+            $resultRedirect->setPath('sales/invoice/');
             return $resultRedirect;
         } else {
             $this->messageManager->addErrorMessage(__('You are not authorized to delete or delete feature disabled. please check the ACL and HelloMage Delete invoice module settings'));
