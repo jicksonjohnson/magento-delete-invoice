@@ -29,22 +29,19 @@ use Magento\Sales\Block\Adminhtml\Order\Invoice\View;
 class PluginAfter extends PluginAbstract
 {
     protected Data $data;
-    protected $systemConfig;
 
     /**
      * PluginAfter constructor.
      * @param AclRetriever $aclRetriever
      * @param Session $authSession
      * @param Data $data
-     * @param SystemConfig $systemConfig
      */
     public function __construct(
         AclRetriever $aclRetriever,
         Session $authSession,
-        SystemConfig $systemConfig,
         Data $data
     ) {
-        parent::__construct($aclRetriever, $authSession, $systemConfig);
+        parent::__construct($aclRetriever, $authSession);
         $this->data = $data;
     }
 
@@ -82,7 +79,7 @@ class PluginAfter extends PluginAbstract
     public function getDeleteUrl($invoiceId)
     {
         return $this->data->getUrl(
-            'delete-invoice/delete/invoice',
+            'deleteinvoice/delete/invoice',
             [
                 'invoice_id' => $invoiceId
             ]

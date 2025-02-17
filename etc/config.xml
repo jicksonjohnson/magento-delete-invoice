@@ -16,12 +16,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <hm-delete-invoice>
+        <hmdeleteinvoice>
             <general>
                 <is_enabled>1</is_enabled>
                 <redirect_page>order-view</redirect_page>
                 <identity>general</identity>
             </general>
-        </hm-delete-invoice>
+        </hmdeleteinvoice>
     </default>
 </config>

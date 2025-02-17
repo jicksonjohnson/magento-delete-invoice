@@ -16,12 +16,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="hello-mage" translate="label" sortOrder="500">
+        <tab id="hellomage" translate="label" sortOrder="500">
             <label>HelloMage Extensions</label>
         </tab>
-        <section id="hm-delete-invoice" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+        <section id="hmdeleteinvoice" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
             <label>HelloMage - Delete Invoice settings</label>
-            <tab>hello-mage</tab>
+            <tab>hellomage</tab>
             <resource>HelloMage_DeleteInvoice::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General</label>

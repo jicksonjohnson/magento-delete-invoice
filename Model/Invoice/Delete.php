@@ -78,6 +78,10 @@ class Delete
      */
     public function deleteInvoice($invoiceId)
     {
+        $connection = $this->data->getConnection();
+        $invoiceGridTable = $this->data->getTableName('sales_invoice_grid');
+        $invoiceTable = $this->data->getTableName('sales_invoice');
+
         $invoice = $this->invoiceRepository->get($invoiceId);
         $orderId = $invoice->getOrder()->getId();
         $order = $this->order->load($orderId);
@@ -135,6 +139,10 @@ class Delete
             $order->setTotalPaid($order->getTotalPaid() - $invoice->getGrandTotal());
             $order->setBaseTotalPaid($order->getBaseTotalPaid() - $invoice->getBaseGrandTotal());
         }
+
+        // delete invoice info
+        $connection->rawQuery('DELETE FROM `'.$invoiceGridTable.'` WHERE entity_id='.$invoiceId);
+        $connection->rawQuery('DELETE FROM `'.$invoiceTable.'` WHERE entity_id='.$invoiceId);
 
         try {
             $invoiceData = $this->invoiceRepository->get($invoiceId);

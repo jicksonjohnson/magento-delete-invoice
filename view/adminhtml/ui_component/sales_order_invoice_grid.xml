@@ -22,7 +22,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">hellomage_deleteInvoice</item>
                         <item name="label" xsi:type="string" translate="true">Delete Invoices</item>
-                        <item name="url" xsi:type="url" path="delete-invoice/delete/massInvoice"/>
+                        <item name="url" xsi:type="url" path="deleteinvoice/delete/massInvoice"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete Invoices</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected invoice(s) ?</item>

@@ -29,22 +29,17 @@ class PluginAbstract
 
     protected Session $authSession;
 
-    protected SystemConfig $systemConfig;
-
     /**
      * PluginAbstract constructor.
      * @param AclRetriever $aclRetriever
      * @param Session $authSession
-     * @param SystemConfig $systemConfig
      */
     public function __construct(
         AclRetriever $aclRetriever,
-        Session $authSession,
-        SystemConfig $systemConfig
+        Session $authSession
     ) {
         $this->aclRetriever = $aclRetriever;
         $this->authSession = $authSession;
-        $this->systemConfig = $systemConfig;
     }
 
     /**
@@ -57,10 +52,8 @@ class PluginAbstract
         $role = $user->getRole();
         $resources = $this->aclRetriever->getAllowedResourcesByRole($role->getId());
 
-        if ($this->systemConfig->IsEnabled()) {
-            if (in_array("Magento_Backend::all", $resources) || in_array("HelloMage_DeleteInvoice::delete", $resources)) {
-                return true;
-            }
+        if (in_array("Magento_Backend::all", $resources) || in_array("HelloMage_DeleteInvoice::delete", $resources)) {
+            return true;
         }
 
         return false;

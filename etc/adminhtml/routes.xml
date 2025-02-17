@@ -16,7 +16,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
-        <route id="delete-invoice" frontName="delete-invoice">
+        <route id="deleteinvoice" frontName="deleteinvoice">
             <module name="HelloMage_DeleteInvoice" />
         </route>
     </router>

@@ -16,7 +16,6 @@ namespace HelloMage\DeleteInvoice\Helper;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\Framework\UrlInterface;
 use Magento\Store\Model\StoreManagerInterface;
 
 /**
@@ -25,10 +24,10 @@ use Magento\Store\Model\StoreManagerInterface;
  */
 class Config
 {
-    const XML_PATH_IS_ENABLED     = 'hm-delete-invoice/general/is_enabled';
-    const XML_PATH_REDIRECT_PAGE  = 'hm-delete-invoice/general/redirect_page';
-    const XML_PATH_EMAIL_IDENTITY = 'hm-delete-invoice/general/identity';
-    const XML_PATH_EMAIL_COPY_TO  = 'hm-delete-invoice/general/copy_to';
+    const XML_PATH_IS_ENABLED     = 'hmdeleteinvoice/general/is_enabled';
+    const XML_PATH_REDIRECT_PAGE  = 'hmdeleteinvoice/general/redirect_page';
+    const XML_PATH_EMAIL_IDENTITY = 'hmdeleteinvoice/general/identity';
+    const XML_PATH_EMAIL_COPY_TO  = 'hmdeleteinvoice/general/copy_to';
     protected StoreManagerInterface $_storeManager;
     private ScopeConfigInterface $scopeConfig;
 
