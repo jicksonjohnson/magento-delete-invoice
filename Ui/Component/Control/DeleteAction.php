@@ -29,14 +29,11 @@ class DeleteAction extends Action
     {
         $config = $this->getConfiguration();
         $context = $this->getContext();
-
         $config['url'] = $context->getUrl(
             $config['deleteAction'],
-            ['invoice_id' => $context->getRequestParam('invoice_id')]
+            ['order_id' => $context->getRequestParam('order_id')]
         );
-
         $this->setData('config', (array)$config);
-
         parent::prepare();
     }
 }

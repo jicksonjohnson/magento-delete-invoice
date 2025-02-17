@@ -17,7 +17,7 @@
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <listingToolbar name="listing_top">
         <massaction name="listing_massaction">
-            <action name="delete_invoices" class="HelloMage\DeleteInvoice\Ui\Component\Control\DeleteAction">
+            <action name="mass_delete_invoices" class="HelloMage\DeleteInvoice\Ui\Component\Control\DeleteAction">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">hellomage_deleteInvoice</item>

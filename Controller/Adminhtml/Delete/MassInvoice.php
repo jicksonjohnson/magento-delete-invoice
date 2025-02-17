@@ -12,19 +12,21 @@
  * @license    https://www.hellomage.com/magento2-osl-3-0-license/
  */
 
+declare(strict_types=1);
+
 namespace HelloMage\DeleteInvoice\Controller\Adminhtml\Delete;
 
 use HelloMage\DeleteInvoice\Helper\Config as SystemConfig;
 use HelloMage\DeleteInvoice\Model\Invoice\Delete;
 
 use Exception;
-use Magento\Backend\App\Action\Context;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Magento\Backend\App\Action\Context;
+use Magento\Ui\Component\MassAction\Filter;
+use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 use Magento\Sales\Api\InvoiceRepositoryInterface;
 use Magento\Sales\Api\OrderManagementInterface;
-use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
-use Magento\Ui\Component\MassAction\Filter;
-use Psr\Log\LoggerInterface;
+
 
 /**
  * Class MassInvoice
@@ -36,11 +38,9 @@ class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMass
 
     protected \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory $invoiceCollectionFactory;
 
-    protected InvoiceRepositoryInterface $invoiceRepository;
+    protected \Magento\Sales\Api\InvoiceRepositoryInterface $invoiceRepository;
 
     protected Delete $delete;
-
-    private LoggerInterface $logger;
     protected SystemConfig $systemConfig;
 
     /**
@@ -52,7 +52,6 @@ class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMass
      * @param \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory $invoiceCollectionFactory
      * @param InvoiceRepositoryInterface $invoiceRepository
      * @param Delete $delete
-     * @param LoggerInterface $logger
      * @param SystemConfig $systemConfig
      */
     public function __construct(
@@ -63,7 +62,6 @@ class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMass
         \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory $invoiceCollectionFactory,
         InvoiceRepositoryInterface $invoiceRepository,
         Delete $delete,
-        LoggerInterface $logger,
         SystemConfig $systemConfig
     ) {
         parent::__construct($context, $filter);
@@ -72,7 +70,6 @@ class MassInvoice extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMass
         $this->invoiceCollectionFactory = $invoiceCollectionFactory;
         $this->invoiceRepository = $invoiceRepository;
         $this->delete = $delete;
-        $this->logger = $logger;
         $this->systemConfig = $systemConfig;
     }
 

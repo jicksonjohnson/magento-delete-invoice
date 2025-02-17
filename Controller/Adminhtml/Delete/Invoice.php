@@ -12,6 +12,8 @@
  * @license    https://www.hellomage.com/magento2-osl-3-0-license/
  */
 
+declare(strict_types=1);
+
 namespace HelloMage\DeleteInvoice\Controller\Adminhtml\Delete;
 
 use HelloMage\DeleteInvoice\Helper\Config as SystemConfig;
